@@ -67,7 +67,7 @@ __git_alias () {
     local alias_str cmd_prefix cmd cmd_args
     alias_str="$1"; cmd_prefix="$2"; cmd="$3"; cmd_args=("${@:4}")
     if [ "$shell" = "zsh" ]; then
-        cmd_args=("${@:3}")
+        # cmd_args=("${@:3}") # I don't understand the purpose of this line, but it breaks the aliases -> for example gc is git commit commit instead of git commit
     fi
 
     alias $alias_str="$cmd_prefix $cmd${cmd_args:+ }${cmd_args[*]}"
